@@ -17,7 +17,7 @@ const Url = () => {
   return (
     <div className={`flex justify-center text-center mt-32 ${darkMode?'dark':''}`} >
         <div className={`w-[350px] md:w-[650px] lg:w-[1100px] ${darkMode?'dark':''}`}>
-        <h1 className={`text-4xl font-regular ${darkMode?"text-white":"text-black   "}`}>Copy your url here</h1>
+        <h1 className={`text-4xl font-regular ${darkMode?"text-white":"text-black   "}`}>Enter your url</h1>
         <div className="lg:flex">
             <Input />  
             <button onClick={shortenUrl}
