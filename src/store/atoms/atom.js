@@ -5,7 +5,12 @@ export const darkModeState = atom({
     default: false
 })
 
-export const handleInput = atom({
-    key: "handleInput",
+export const handleUrl = atom({
+    key: "handleUrl",
+    default: ""
+})
+
+export const handleTag = atom({
+    key: "handleTag",
     default: ""
 })

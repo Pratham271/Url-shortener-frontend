@@ -1,13 +1,21 @@
 import React from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { darkModeState, handleInput } from '../store/atoms/atom'
+import { darkModeState, handleUrl } from '../store/atoms/atom'
 
-const Input = () => {
+const Input = ({onChange, shortenUrl,placeholder, label,isUrlEmpty}) => {
     const darkMode = useRecoilValue(darkModeState)
-    const setUrl = useSetRecoilState(handleInput)
+    const handlekeyDown = (event) => {
+      if(event.key==='Enter' && !event.shiftKey && !isUrlEmpty){
+        event.preventDefault();
+          shortenUrl();
+      }
+    }
   return (
     <>
-      <input onChange={(e)=> setUrl(e.target.value)} type="text" id="text" className={` bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-12 ${darkMode?"bg-gray-700 border-gray-600 placeholder-gray-400 text-white  focus:ring-blue-500 focus:border-blue-500":""}`} placeholder="https://google.com" required />
+      <div className={`flex flex-start ${darkMode?"text-white":"text-gray-900"}`}>
+      <label htmlFor={label} className='text-md font-semibold'>{label}</label>
+      </div>
+      <input onKeyDown={handlekeyDown} onChange={onChange} type="text" id="text" className={`focus:outline-none bg-white border border-gray-800 text-gray-900 text-sm rounded-lg  block w-full p-2.5 mt-2 ${darkMode?"bg-slate-700 border-gray-200 placeholder-gray-400 text-white":""}`} placeholder={placeholder} required />
     </>
   )
 }
