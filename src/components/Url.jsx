@@ -31,6 +31,7 @@ const Url = () => {
   return (
     <div className={`flex justify-center text-center mt-32 ${darkMode?'dark':''}`} >
         <div className={`w-[350px] md:w-[650px] lg:w-[1100px] ${darkMode?'dark':''}`}>
+
         <h1 className={`text-4xl font-regular ${darkMode?"text-white":"text-black   "}`}>Copy your url here</h1>
         <div>
             <div className='mt-8'>
@@ -42,6 +43,13 @@ const Url = () => {
 
             <button onClick={shortenUrl} disabled={isUrlEmpty}
             className={`mt-8 w-full  rounded h-10 ${darkMode?"bg-gray-500 text-white hover:bg-gray-400": "bg-gray-700 hover:bg-gray-900 text-white"}`}>Shrink URL</button>
+
+        <h1 className={`text-4xl font-regular ${darkMode?"text-white":"text-black   "}`}>Enter your url</h1>
+        <div className="lg:flex">
+            <Input />  
+            <button onClick={shortenUrl}
+            className={`ml-2 mt-[49px] w-full lg:w-28  rounded h-10 ${darkMode?"bg-white text-gray-900 hover:bg-[#DEDEDE]": "bg-gray-700 hover:bg-gray-900 text-white"}`}>Short URL</button>
+
         </div>
         <div  className={`mt-6 ${darkMode?"text-white":""}`}>
         {loading?<Spinner/>:<a href={shortUrl} target='_blank'>{shortUrl}</a>}
